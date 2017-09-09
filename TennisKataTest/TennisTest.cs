@@ -64,6 +64,51 @@ namespace TennisKataTest
             Assert.AreEqual("40:30", score);    
         }
 
+        [Test]
+        public void WhenPlayerTwoWinsPointScoreShouldBeFortyAdvantage()
+        {
+            //Given the score 40:40
+            var player1 = new Player("P1");
+            var player2 = new Player("P2");
+            var game = new Game(player1, player2);
+            game.EarnPoint(player1);
+            game.EarnPoint(player1);
+            game.EarnPoint(player1);
+            game.EarnPoint(player2);
+            game.EarnPoint(player2);
+            game.EarnPoint(player2);
+
+            //When Player1 wins a point
+            game.EarnPoint(player2);
+            var score = game.DisplayPoint();
+
+            //Then the score is 40:Advantage
+            Assert.AreEqual("40:Advantage", score);
+        }
+
+        [Test]
+        public void WhenPlayerTwoWinsPointScoreShouldBeFortyForty()
+        {
+            //Given the score A:40
+            var player1 = new Player("P1");
+            var player2 = new Player("P2");
+            var game = new Game(player1, player2);
+            game.EarnPoint(player1);
+            game.EarnPoint(player1);
+            game.EarnPoint(player1);
+            game.EarnPoint(player1);
+            game.EarnPoint(player2);
+            game.EarnPoint(player2);
+            game.EarnPoint(player2);
+
+            //When Player2 wins point
+            game.EarnPoint(player2);
+            var score = game.DisplayPoint();
+
+            //Then the score is 40:40
+            Assert.AreEqual("40:40", score);
+        }
+
         static void Main(string[] args) {
         }
     }
@@ -82,6 +127,16 @@ namespace TennisKataTest
         public void EarnPoint(Player player)
         {
             player._score += 1;
+            if (player1._score > 3 || player2._score > 3 )
+            {
+                var diff = player1._score - player2._score;
+                if (diff == 0)
+                {
+                    player1._score = 3;
+                    player2._score = 3;
+                }
+            }
+             
         }
 
         public String DisplayPoint()
@@ -112,6 +167,9 @@ namespace TennisKataTest
                     break;
                 case 3:
                     point = "40";
+                    break;
+                case 4:
+                    point = "Advantage";
                     break;
             }
             return point;
