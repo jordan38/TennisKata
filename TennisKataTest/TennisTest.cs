@@ -96,10 +96,11 @@ namespace TennisKataTest
             game.EarnPoint(player1);
             game.EarnPoint(player1);
             game.EarnPoint(player1);
+            game.EarnPoint(player2);
+            game.EarnPoint(player2);
+            game.EarnPoint(player2);
             game.EarnPoint(player1);
-            game.EarnPoint(player2);
-            game.EarnPoint(player2);
-            game.EarnPoint(player2);
+            
 
             //When Player2 wins point
             game.EarnPoint(player2);
@@ -109,32 +110,81 @@ namespace TennisKataTest
             Assert.AreEqual("40:40", score);
         }
 
+        [Test]
+        public void WhenPlayerOneWinsPointPlayerOneShouldWin()
+        {
+            //Given the score 40:30
+            var player1 = new Player("Player1");
+            var player2 = new Player("Player2");
+            var game = new Game(player1, player2);
+            game.EarnPoint(player1);
+            game.EarnPoint(player1);
+            game.EarnPoint(player1);
+            game.EarnPoint(player2);
+            game.EarnPoint(player2);
+
+            //When Player1 wins point
+            game.EarnPoint(player1);
+            var score = game.DisplayPoint();
+
+            //Then the player1 should win
+            Assert.AreEqual("Player1 win", score);
+        }
+
+        [Test]
+        public void WhenPlayerTwoWinsPointPlayerTwoShouldWin()
+        {
+            //Given the score 40:Advantage
+            var player1 = new Player("Player1");
+            var player2 = new Player("Player2");
+            var game = new Game(player1, player2);
+            game.EarnPoint(player1);
+            game.EarnPoint(player1);
+            game.EarnPoint(player1);
+            game.EarnPoint(player2);
+            game.EarnPoint(player2);
+            game.EarnPoint(player2);
+            game.EarnPoint(player2);
+
+            //When Player2 wins point
+            game.EarnPoint(player2);
+            var score = game.DisplayPoint();
+
+            //Then the player2 should win
+            Assert.AreEqual("Player2 win", score);
+        }
+
         static void Main(string[] args) {
         }
     }
 
     internal class Game
     {
-        private Player player1;
-        private Player player2;
+        private Player _player1;
+        private Player _player2;
 
         public Game(Player player1, Player player2)
         {
-            this.player1 = player1;
-            this.player2 = player2;
+            _player1 = player1;
+            _player2 = player2;
         }
 
         public void EarnPoint(Player player)
         {
-            player._score += 1;
-            if (player1._score > 3 || player2._score > 3 )
+            player.score += 1;
+            if (_player1.score > 3 || _player2.score > 3 )
             {
-                var diff = player1._score - player2._score;
-                if (diff == 0)
+                var diffBetweenScore = Math.Abs(_player1.score - _player2.score);
+                if (diffBetweenScore == 0)
                 {
-                    player1._score = 3;
-                    player2._score = 3;
+                    _player1.score = 3;
+                    _player2.score = 3;
+
+                } else if (diffBetweenScore > 1)
+                {
+                    player.score += 2;
                 }
+
             }
              
         }
@@ -143,18 +193,30 @@ namespace TennisKataTest
         {
             var display = "";
 
-            display += TranslatePoint(player1._score);
-            display += ":";
-            display += TranslatePoint(player2._score);
+            var p1ScoreDisplay = TranslatePoint(_player1);
+            var separator = ":";
+            var p2ScoreDisplay = TranslatePoint(_player2);
+
+            if (p1ScoreDisplay.Contains("win"))
+            {
+                display = p1ScoreDisplay;
+
+            } else if (p2ScoreDisplay.Contains("win"))
+            {
+                display = p2ScoreDisplay;
+            } else
+            {
+                display = p1ScoreDisplay + separator + p2ScoreDisplay;
+            }
 
             return display;
         }
 
-        private string TranslatePoint(int score)
+        private string TranslatePoint(Player player)
         {
             var point = "";
 
-            switch(score)
+            switch(player.score)
             {
                 case 0:
                     point = "0";
@@ -171,6 +233,9 @@ namespace TennisKataTest
                 case 4:
                     point = "Advantage";
                     break;
+                default:
+                    point = player.ToString() + " win";
+                    break;
             }
             return point;
         }
@@ -179,12 +244,18 @@ namespace TennisKataTest
     internal class Player
     {
         private string _name;
-        public int _score { get;  set; }
+        public int score { get;  set; }
 
         public Player(string name)
         {
-            this._name = name;
-            this._score = 0;
+            _name = name;
+            score = 0;
         }
+
+        public override string ToString()
+        {
+            return _name;
+        }
+
     }
 }
