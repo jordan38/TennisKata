@@ -9,7 +9,7 @@ using TennisKata;
 namespace TennisKataTest
 {
     [TestFixture]
-    class GameShould
+    class TennisGameShould
     {
         private TennisGame game;
 

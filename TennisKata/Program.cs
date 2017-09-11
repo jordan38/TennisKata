@@ -14,25 +14,38 @@ namespace TennisKata
         {
             game = new TennisGame("player1", "player2");
 
-            game.WinAPoint("player1");
+            var score = game.WinAPoint("player1");
+            Console.WriteLine(score);
 
-            game.WinAPoint("player1");
+            score = game.WinAPoint("player1");
+            Console.WriteLine(score);
 
-            game.WinAPoint("player2");
+            score = game.WinAPoint("player2");
+            Console.WriteLine(score);
 
-            game.WinAPoint("player2");
+            score = game.WinAPoint("player2");
+            Console.WriteLine(score);
 
-            game.WinAPoint("player2");
+            score = game.WinAPoint("player2");
+            Console.WriteLine(score);
 
-            game.WinAPoint("player1");
+            score = game.WinAPoint("player1");
+            Console.WriteLine(score);
 
-            game.WinAPoint("player1");
+            score = game.WinAPoint("player1");
+            Console.WriteLine(score);
 
-            game.WinAPoint("player2");
+            score = game.WinAPoint("player2");
+            Console.WriteLine(score);
 
-            game.WinAPoint("player2");
+            score = game.WinAPoint("player2");
+            Console.WriteLine(score);
 
-            game.WinAPoint("player2");
+            score = game.WinAPoint("player2");
+            Console.WriteLine(score);
+
+            Console.WriteLine("Press enter to finish game...");
+            Console.ReadLine();
         }
     }
 }
