@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using FluentAssertions;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using TennisKata;
 namespace TennisKataTest
 {
     [TestFixture]
-    class TennisTest
+    class GameShould
     {
         private Player player1;
         private Player player2;
@@ -32,7 +33,7 @@ namespace TennisKataTest
             var score = game.DisplayPoint();
 
             //Then the score is 15:0
-            Assert.AreEqual("15:0", score);
+            score.Should().Be("15:0");
         }
 
         [Test]
@@ -48,7 +49,7 @@ namespace TennisKataTest
             var score = game.DisplayPoint();
 
             //Then the score is 15:30
-            Assert.AreEqual("15:30", score);
+            score.Should().Be("15:30");
         }
 
         [Test]
@@ -66,7 +67,7 @@ namespace TennisKataTest
             var score = game.DisplayPoint();
 
             //Then the score is 40:30
-            Assert.AreEqual("40:30", score);    
+            score.Should().Be("40:30");
         }
 
         [Test]
@@ -86,7 +87,7 @@ namespace TennisKataTest
             var score = game.DisplayPoint();
 
             //Then the score is 40:Advantage
-            Assert.AreEqual("40:Advantage", score);
+            score.Should().Be("40:Advantage");
         }
 
         [Test]
@@ -108,7 +109,7 @@ namespace TennisKataTest
             var score = game.DisplayPoint();
 
             //Then the score is 40:40
-            Assert.AreEqual("40:40", score);
+            score.Should().Be("40:40");
         }
 
         [Test]
@@ -127,7 +128,7 @@ namespace TennisKataTest
             var score = game.DisplayPoint();
 
             //Then the player1 should win
-            Assert.AreEqual("Player1 win", score);
+            score.Should().Be("Player1 win");
         }
 
         [Test]
@@ -148,10 +149,7 @@ namespace TennisKataTest
             var score = game.DisplayPoint();
 
             //Then the player2 should win
-            Assert.AreEqual("Player2 win", score);
-        }
-
-        static void Main(string[] args) {
+            score.Should().Be("Player2 win");
         }
     }
 }
