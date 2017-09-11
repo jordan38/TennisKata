@@ -42,11 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Deuce.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="IGame.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Point.cs" />
+    <Compile Include="Points.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScoreState.cs" />
+    <Compile Include="TennisGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -11,145 +11,83 @@ namespace TennisKataTest
     [TestFixture]
     class GameShould
     {
-        private Player player1;
-        private Player player2;
-        private Game game;
-
-        [SetUp]
-        public void Setup()
-        {
-            player1 = new Player("Player1");
-            player2 = new Player("Player2");
-        }
+        private TennisGame game;
 
         [Test]
         public void WhenPlayerOneWinPointScoreIsFiftyLove()
         {
-            //Given the score 0:0
-            game = new Game(player1, player2);
-            game.WinAPoint(player1);
+            ScoreState scoreStart = new Points(Point.Love, Point.Love);
+            game = new TennisGame("Player1", "Player2", scoreStart);
 
-            //When Player1 wins a point
-            var score = game.DisplayScore();
+            var score = game.WinAPoint("Player1");
 
-            //Then the score is 15:0
-            score.Should().Be("15:0");
+            score.ToString().Should().Be("Fifteen:Love");
         }
 
         [Test]
         public void WhenPlayerTwoWinPointScoreIsFiftyThirty()
         {
-            //Given the score 15:15
-            game = new Game(player1, player2);
-            game.WinAPoint(player1);
-            game.WinAPoint(player2);
+            ScoreState scoreStart = new Points(Point.Fifteen, Point.Fifteen);
+            game = new TennisGame("Player1", "Player2", scoreStart);
 
-            //when Player2 wins a point
-            game.WinAPoint(player2);
-            var score = game.DisplayScore();
+            var score = game.WinAPoint("Player2");
 
-            //Then the score is 15:30
-            score.Should().Be("15:30");
+            score.ToString().Should().Be("Fifteen:Thirty");
         }
 
         [Test]
         public void WhenPlayerOneWinPointScoreIsFortyThirty()
         {
-            //Given the score 30:30 
-            game = new Game(player1, player2);
-            game.WinAPoint(player1);
-            game.WinAPoint(player1);
-            game.WinAPoint(player2);
-            game.WinAPoint(player2);
+            ScoreState scoreStart = new Points(Point.Thirty, Point.Thirty);
+            game = new TennisGame("Player1", "Player2", scoreStart);
 
-            //When Player1 wins a point
-            game.WinAPoint(player1);
-            var score = game.DisplayScore();
+            var score = game.WinAPoint("Player1");
 
-            //Then the score is 40:30
-            score.Should().Be("40:30");
+            score.ToString().Should().Be("Forty:Thirty");
         }
 
         [Test]
         public void WhenPlayerTwoWinsPointScoreShouldBeFortyAdvantage()
         {
-            //Given the score 40:40
-            game = new Game(player1, player2);
-            game.WinAPoint(player1);
-            game.WinAPoint(player1);
-            game.WinAPoint(player1);
-            game.WinAPoint(player2);
-            game.WinAPoint(player2);
-            game.WinAPoint(player2);
+            ScoreState scoreStart = new Points(Point.Forty, Point.Forty);
+            game = new TennisGame("Player1", "Player2", scoreStart);
 
-            //When Player1 wins a point
-            game.WinAPoint(player2);
-            var score = game.DisplayScore();
+            var score = game.WinAPoint("Player2");
 
-            //Then the score is 40:Advantage
-            score.Should().Be("40:Advantage");
+            score.ToString().Should().Be("Forty:Advantage");
         }
 
         [Test]
         public void WhenPlayerTwoWinsPointScoreShouldBeFortyForty()
         {
-            //Given the score A:40
-            game = new Game(player1, player2);
-            game.WinAPoint(player1);
-            game.WinAPoint(player1);
-            game.WinAPoint(player1);
-            game.WinAPoint(player2);
-            game.WinAPoint(player2);
-            game.WinAPoint(player2);
-            game.WinAPoint(player1);
-            
+            ScoreState scoreStart = new Points(Point.Advantage, Point.Forty);
+            game = new TennisGame("Player1", "Player2", scoreStart);
 
-            //When Player2 wins point
-            game.WinAPoint(player2);
-            var score = game.DisplayScore();
+            var score = game.WinAPoint("Player2");
 
-            //Then the score is 40:40
-            score.Should().Be("40:40");
+            score.ToString().Should().Be("Deuce");
         }
 
         [Test]
         public void WhenPlayerOneWinsPointPlayerOneShouldWin()
         {
-            //Given the score 40:30
-            game = new Game(player1, player2);
-            game.WinAPoint(player1);
-            game.WinAPoint(player1);
-            game.WinAPoint(player1);
-            game.WinAPoint(player2);
-            game.WinAPoint(player2);
+            ScoreState scoreStart = new Points(Point.Forty, Point.Thirty);
+            game = new TennisGame("Player1", "Player2", scoreStart);
 
-            //When Player1 wins point
-            game.WinAPoint(player1);
-            var score = game.DisplayScore();
+            var score = game.WinAPoint("Player1");
 
-            //Then the player1 should win
-            score.Should().Be("Player1 win");
+            score.ToString().Should().Be("Game win");
         }
 
         [Test]
         public void WhenPlayerTwoWinsPointPlayerTwoShouldWin()
         {
-            //Given the score 40:Advantage
-            game = new Game(player1, player2);
-            game.WinAPoint(player1);
-            game.WinAPoint(player1);
-            game.WinAPoint(player1);
-            game.WinAPoint(player2);
-            game.WinAPoint(player2);
-            game.WinAPoint(player2);
-            game.WinAPoint(player2);
+            ScoreState scoreStart = new Points(Point.Forty, Point.Advantage);
+            game = new TennisGame("Player1", "Player2", scoreStart);
 
-            //When Player2 wins point
-            game.WinAPoint(player2);
-            var score = game.DisplayScore();
+            var score = game.WinAPoint("Player2");
 
-            //Then the player2 should win
-            score.Should().Be("Player2 win");
+            score.ToString().Should().Be("Game win");
         }
     }
 }

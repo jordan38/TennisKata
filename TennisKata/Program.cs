@@ -8,44 +8,31 @@ namespace TennisKata
 {
     class Program
     {
-        private static Game game;
+        private static TennisGame game;
 
         static void Main(string[] args)
         {
-            var player1 = new Player("Player1");
-            var player2 = new Player("Player2");
+            game = new TennisGame("player1", "player2");
 
-            game = new Game(player1, player2);
+            game.WinAPoint("player1");
 
-            game.WinAPoint(player1);
-            Console.WriteLine(game.DisplayScore());
+            game.WinAPoint("player1");
 
-            game.WinAPoint(player1);
-            Console.WriteLine(game.DisplayScore());
+            game.WinAPoint("player2");
 
-            game.WinAPoint(player2);
-            Console.WriteLine(game.DisplayScore());
+            game.WinAPoint("player2");
 
-            game.WinAPoint(player2);
-            Console.WriteLine(game.DisplayScore());
+            game.WinAPoint("player2");
 
-            game.WinAPoint(player2);
-            Console.WriteLine(game.DisplayScore());
+            game.WinAPoint("player1");
 
-            game.WinAPoint(player1);
-            Console.WriteLine(game.DisplayScore());
+            game.WinAPoint("player1");
 
-            game.WinAPoint(player1);
-            Console.WriteLine(game.DisplayScore());
+            game.WinAPoint("player2");
 
-            game.WinAPoint(player2);
-            Console.WriteLine(game.DisplayScore());
+            game.WinAPoint("player2");
 
-            game.WinAPoint(player2);
-            Console.WriteLine(game.DisplayScore());
-
-            game.WinAPoint(player2);
-            Console.WriteLine(game.DisplayScore());
+            game.WinAPoint("player2");
         }
     }
 }
