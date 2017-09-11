@@ -1,9 +1,9 @@
 ﻿using System;
-using TennisKata;
 
 namespace TennisKata
 {
-    public class Game : IGame
+    
+    public class Game
     {
         private Player _player1;
         private Player _player2;
@@ -14,7 +14,7 @@ namespace TennisKata
             _player2 = player2;
         }
 
-        public void EarnPoint(Player player)
+        public void WinAPoint(Player player)
         {
             player.score += 1;
             if (_player1.score > 3 || _player2.score > 3 )
@@ -34,7 +34,7 @@ namespace TennisKata
              
         }
 
-        public String DisplayPoint()
+        public String DisplayScore()
         {
             var display = "";
 

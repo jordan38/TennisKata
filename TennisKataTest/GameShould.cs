@@ -13,7 +13,7 @@ namespace TennisKataTest
     {
         private Player player1;
         private Player player2;
-        private IGame game;
+        private Game game;
 
         [SetUp]
         public void Setup()
@@ -27,10 +27,10 @@ namespace TennisKataTest
         {
             //Given the score 0:0
             game = new Game(player1, player2);
-            game.EarnPoint(player1);
+            game.WinAPoint(player1);
 
             //When Player1 wins a point
-            var score = game.DisplayPoint();
+            var score = game.DisplayScore();
 
             //Then the score is 15:0
             score.Should().Be("15:0");
@@ -41,12 +41,12 @@ namespace TennisKataTest
         {
             //Given the score 15:15
             game = new Game(player1, player2);
-            game.EarnPoint(player1);
-            game.EarnPoint(player2);
+            game.WinAPoint(player1);
+            game.WinAPoint(player2);
 
             //when Player2 wins a point
-            game.EarnPoint(player2);
-            var score = game.DisplayPoint();
+            game.WinAPoint(player2);
+            var score = game.DisplayScore();
 
             //Then the score is 15:30
             score.Should().Be("15:30");
@@ -57,14 +57,14 @@ namespace TennisKataTest
         {
             //Given the score 30:30 
             game = new Game(player1, player2);
-            game.EarnPoint(player1);
-            game.EarnPoint(player1);
-            game.EarnPoint(player2);
-            game.EarnPoint(player2);
+            game.WinAPoint(player1);
+            game.WinAPoint(player1);
+            game.WinAPoint(player2);
+            game.WinAPoint(player2);
 
             //When Player1 wins a point
-            game.EarnPoint(player1);
-            var score = game.DisplayPoint();
+            game.WinAPoint(player1);
+            var score = game.DisplayScore();
 
             //Then the score is 40:30
             score.Should().Be("40:30");
@@ -75,16 +75,16 @@ namespace TennisKataTest
         {
             //Given the score 40:40
             game = new Game(player1, player2);
-            game.EarnPoint(player1);
-            game.EarnPoint(player1);
-            game.EarnPoint(player1);
-            game.EarnPoint(player2);
-            game.EarnPoint(player2);
-            game.EarnPoint(player2);
+            game.WinAPoint(player1);
+            game.WinAPoint(player1);
+            game.WinAPoint(player1);
+            game.WinAPoint(player2);
+            game.WinAPoint(player2);
+            game.WinAPoint(player2);
 
             //When Player1 wins a point
-            game.EarnPoint(player2);
-            var score = game.DisplayPoint();
+            game.WinAPoint(player2);
+            var score = game.DisplayScore();
 
             //Then the score is 40:Advantage
             score.Should().Be("40:Advantage");
@@ -95,18 +95,18 @@ namespace TennisKataTest
         {
             //Given the score A:40
             game = new Game(player1, player2);
-            game.EarnPoint(player1);
-            game.EarnPoint(player1);
-            game.EarnPoint(player1);
-            game.EarnPoint(player2);
-            game.EarnPoint(player2);
-            game.EarnPoint(player2);
-            game.EarnPoint(player1);
+            game.WinAPoint(player1);
+            game.WinAPoint(player1);
+            game.WinAPoint(player1);
+            game.WinAPoint(player2);
+            game.WinAPoint(player2);
+            game.WinAPoint(player2);
+            game.WinAPoint(player1);
             
 
             //When Player2 wins point
-            game.EarnPoint(player2);
-            var score = game.DisplayPoint();
+            game.WinAPoint(player2);
+            var score = game.DisplayScore();
 
             //Then the score is 40:40
             score.Should().Be("40:40");
@@ -117,15 +117,15 @@ namespace TennisKataTest
         {
             //Given the score 40:30
             game = new Game(player1, player2);
-            game.EarnPoint(player1);
-            game.EarnPoint(player1);
-            game.EarnPoint(player1);
-            game.EarnPoint(player2);
-            game.EarnPoint(player2);
+            game.WinAPoint(player1);
+            game.WinAPoint(player1);
+            game.WinAPoint(player1);
+            game.WinAPoint(player2);
+            game.WinAPoint(player2);
 
             //When Player1 wins point
-            game.EarnPoint(player1);
-            var score = game.DisplayPoint();
+            game.WinAPoint(player1);
+            var score = game.DisplayScore();
 
             //Then the player1 should win
             score.Should().Be("Player1 win");
@@ -136,17 +136,17 @@ namespace TennisKataTest
         {
             //Given the score 40:Advantage
             game = new Game(player1, player2);
-            game.EarnPoint(player1);
-            game.EarnPoint(player1);
-            game.EarnPoint(player1);
-            game.EarnPoint(player2);
-            game.EarnPoint(player2);
-            game.EarnPoint(player2);
-            game.EarnPoint(player2);
+            game.WinAPoint(player1);
+            game.WinAPoint(player1);
+            game.WinAPoint(player1);
+            game.WinAPoint(player2);
+            game.WinAPoint(player2);
+            game.WinAPoint(player2);
+            game.WinAPoint(player2);
 
             //When Player2 wins point
-            game.EarnPoint(player2);
-            var score = game.DisplayPoint();
+            game.WinAPoint(player2);
+            var score = game.DisplayScore();
 
             //Then the player2 should win
             score.Should().Be("Player2 win");
