@@ -76,7 +76,7 @@ namespace TennisKataTest
 
             var score = game.WinAPoint("Player1");
 
-            score.ToString().Should().Be("Game win");
+            score.ToString().Should().Be("Player1 game win");
         }
 
         [Test]
@@ -87,7 +87,7 @@ namespace TennisKataTest
 
             var score = game.WinAPoint("Player2");
 
-            score.ToString().Should().Be("Game win");
+            score.ToString().Should().Be("Player2 game win");
         }
     }
 }

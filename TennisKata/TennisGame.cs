@@ -44,7 +44,14 @@ namespace TennisKata
                 }
                 else if (diffBetweenScore >= 2)
                 {
-                    _score = new Game(Point.Love, Point.Love);
+                    if ((int)_score._playerOnePoint > (int)_score._playerTwoPoint)
+                    {
+                        _score = new Game(Point.Love, Point.Love, _playerOne);
+                    } else
+                    {
+                        _score = new Game(Point.Love, Point.Love, _playerTwo);
+                    }
+                    
                 }
             }
             return _score;
