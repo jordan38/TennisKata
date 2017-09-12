@@ -51,7 +51,6 @@ namespace TennisKata
                     {
                         _score = new Game(Point.Love, Point.Love, _playerTwo);
                     }
-                    
                 }
             }
             return _score;
