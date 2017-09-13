@@ -14,7 +14,7 @@ namespace TennisKataTest
         private TennisGame game;
 
         [Test]
-        public void WhenPlayerOneWinPointScoreIsFiftyLove()
+        public void ReturnScoreFifteenLoveWhenPlayerOneWinAPoint()
         {
             ScoreState scoreStart = new Points(Point.Love, Point.Love);
             game = new TennisGame("Player1", "Player2", scoreStart);
@@ -25,7 +25,7 @@ namespace TennisKataTest
         }
 
         [Test]
-        public void WhenPlayerTwoWinPointScoreIsFiftyThirty()
+        public void ReturnScoreFifteenThirtyWhenPlayerTwoWinAPoint()
         {
             ScoreState scoreStart = new Points(Point.Fifteen, Point.Fifteen);
             game = new TennisGame("Player1", "Player2", scoreStart);
@@ -36,7 +36,7 @@ namespace TennisKataTest
         }
 
         [Test]
-        public void WhenPlayerOneWinPointScoreIsFortyThirty()
+        public void ReturnScoreFortyFortyWhenPlayerOneWinAPoint()
         {
             ScoreState scoreStart = new Points(Point.Thirty, Point.Thirty);
             game = new TennisGame("Player1", "Player2", scoreStart);
@@ -47,7 +47,7 @@ namespace TennisKataTest
         }
 
         [Test]
-        public void WhenPlayerTwoWinsPointScoreShouldBeFortyAdvantage()
+        public void ReturnScoreFortyAdvantageWhenPlayerTwoWinAPoint()
         {
             ScoreState scoreStart = new Points(Point.Forty, Point.Forty);
             game = new TennisGame("Player1", "Player2", scoreStart);
@@ -58,7 +58,7 @@ namespace TennisKataTest
         }
 
         [Test]
-        public void WhenPlayerTwoWinsPointScoreShouldBeFortyForty()
+        public void ReturnScoreDeuceWhenPlayerTwoWinAPoint()
         {
             ScoreState scoreStart = new Points(Point.Advantage, Point.Forty);
             game = new TennisGame("Player1", "Player2", scoreStart);
@@ -69,7 +69,7 @@ namespace TennisKataTest
         }
 
         [Test]
-        public void WhenPlayerOneWinsPointPlayerOneShouldWin()
+        public void ReturnGameWinForPlayerOneWhenPlayerOneWinAPoint()
         {
             ScoreState scoreStart = new Points(Point.Forty, Point.Thirty);
             game = new TennisGame("Player1", "Player2", scoreStart);
@@ -80,7 +80,7 @@ namespace TennisKataTest
         }
 
         [Test]
-        public void WhenPlayerTwoWinsPointPlayerTwoShouldWin()
+        public void ReturnGameWinForPlayerTwoWhenPlayerTwoWinAPoint()
         {
             ScoreState scoreStart = new Points(Point.Forty, Point.Advantage);
             game = new TennisGame("Player1", "Player2", scoreStart);

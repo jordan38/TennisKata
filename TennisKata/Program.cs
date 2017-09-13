@@ -44,6 +44,24 @@ namespace TennisKata
             score = game.WinAPoint("player2");
             Console.WriteLine(score);
 
+            score = game.WinAPoint("player2");
+            Console.WriteLine(score);
+
+            score = game.WinAPoint("player2");
+            Console.WriteLine(score);
+
+            score = game.WinAPoint("player2");
+            Console.WriteLine(score);
+
+            score = game.WinAPoint("player2");
+            Console.WriteLine(score);
+
+            score = game.WinAPoint("player2");
+            Console.WriteLine(score);
+
+            score = game.WinAPoint("player1");
+            Console.WriteLine(score);
+
             Console.WriteLine("Press enter to finish game...");
             Console.ReadLine();
         }
