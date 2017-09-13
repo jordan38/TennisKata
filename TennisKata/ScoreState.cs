@@ -2,15 +2,15 @@
 {
     public abstract class ScoreState
     {
-        public readonly Point _playerOnePoint;
-        public readonly Point _playerTwoPoint;
+        public readonly Point PlayerOnePoint;
+        public readonly Point PlayerTwoPoint;
 
         public ScoreState(Point playerOnePoint, Point playerTwoPoint)
         {
-            _playerOnePoint = playerOnePoint;
-            _playerTwoPoint = playerTwoPoint;
+            PlayerOnePoint = playerOnePoint;
+            PlayerTwoPoint = playerTwoPoint;
         }
 
-        public abstract ScoreState AddPointTo(string player);
+        public abstract ScoreState AddPointTo(Player player);
     }
 }

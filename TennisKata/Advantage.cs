@@ -4,24 +4,24 @@ namespace TennisKata
 {
     public class Advantage : ScoreState
     {
-        private string _playerWithAdvantage;
+        private Player _playerWithAdvantage;
 
         public Advantage(Point playerOnePoint, Point playerTwoPoint) : base(playerOnePoint, playerTwoPoint)
         {
         }
 
-        public Advantage(Point playerOnePoint, Point playerTwoPoint, string playerWithAdvantage) : this(playerOnePoint, playerTwoPoint)
+        public Advantage(Point playerOnePoint, Point playerTwoPoint, Player playerWithAdvantage) : this(playerOnePoint, playerTwoPoint)
         {
             _playerWithAdvantage = playerWithAdvantage;
         }
 
-        public override ScoreState AddPointTo(string player)
+        public override ScoreState AddPointTo(Player player)
         {
             ScoreState score;
 
-            if (_playerOnePoint > _playerTwoPoint)
+            if (PlayerOnePoint > PlayerTwoPoint)
             {
-                if (Equals(player, "Player1"))
+                if (player.Numero.Equals(1))
                 {
                     score = new Game(Point.Love, Point.Love, player);
                 } else
@@ -31,7 +31,7 @@ namespace TennisKata
             }
             else
             {
-                if (Equals(player, "Player2"))
+                if (player.Numero.Equals(2))
                 {
                     score = new Game(Point.Love, Point.Love, player);
                 } else
@@ -45,7 +45,7 @@ namespace TennisKata
 
         public override string ToString()
         {
-            return "Advantage for " + _playerWithAdvantage; 
+            return "Advantage for " + _playerWithAdvantage.ToString(); 
         }
     }
 }

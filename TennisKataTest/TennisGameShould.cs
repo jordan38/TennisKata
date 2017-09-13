@@ -59,7 +59,7 @@ namespace TennisKataTest
         [Test]
         public void ReturnScoreDeuceWhenPlayerTwoWinAPoint()
         {
-            ScoreState scoreStart = new Advantage(Point.Advantage, Point.Forty, "Player1");
+            ScoreState scoreStart = new Advantage(Point.Advantage, Point.Forty);
             game = new TennisGame("Player1", "Player2", scoreStart);
 
             var score = game.WinAPoint("Player2");
@@ -79,6 +79,17 @@ namespace TennisKataTest
         }
 
         [Test]
+        public void RetunAdvantageForPlayerOneWhenPlayerOneWinAPoint()
+        {
+            ScoreState scoreStart = new Deuce(Point.Forty, Point.Forty);
+            game = new TennisGame("Player1", "Player2", scoreStart);
+
+            var score = game.WinAPoint("Player1");
+
+            score.ToString().Should().Be("Advantage for Player1");
+        }
+
+        [Test]
         public void ReturnGameWinForPlayerOneWhenPlayerOneWinAPoint()
         {
             ScoreState scoreStart = new Points(Point.Forty, Point.Thirty);
@@ -92,12 +103,39 @@ namespace TennisKataTest
         [Test]
         public void ReturnGameWinForPlayerTwoWhenPlayerTwoWinAPoint()
         {
-            ScoreState scoreStart = new Advantage(Point.Forty, Point.Advantage, "Player2");
+            ScoreState scoreStart = new Advantage(Point.Forty, Point.Advantage);
             game = new TennisGame("Player1", "Player2", scoreStart);
 
             var score = game.WinAPoint("Player2");
 
             score.ToString().Should().Be("Player2 game win");
+        }
+
+        [Test]
+        public void ReturnScoreLoveLoveAfterGameOver()
+        {
+            ScoreState scoreStart = new Points(Point.Love, Point.Forty);
+            game = new TennisGame("Player1", "Player2", scoreStart);
+
+            var score = game.WinAPoint("Player2");
+
+            score.PlayerOnePoint.Should().Be(Point.Love);
+            score.PlayerTwoPoint.Should().Be(Point.Love);
+        }
+
+        [Ignore("It's not take part of this commit")]
+        public void ReturnScoreFifteenLoveWhenPlayerOneWinAGameAfterOneGameIsFinish()
+        {
+            ScoreState scoreStart = new Points(Point.Love, Point.Forty);
+            game = new TennisGame("Player1", "Player2", scoreStart);
+
+            var score = game.WinAPoint("Player2");
+
+            score.ToString().Should().Be("Player2 game win");
+
+            score = game.WinAPoint("Player1");
+
+            score.ToString().Should().Be("Fifteen:Love");
         }
     }
 }

@@ -9,38 +9,38 @@ namespace TennisKata
         {
         }
 
-        public override ScoreState AddPointTo(string player)
+        public override ScoreState AddPointTo(Player player)
         {
             ScoreState score = null;
 
-            var diffBetweenScore = Math.Abs((int)_playerOnePoint - (int)_playerTwoPoint);
+            var diffBetweenScore = Math.Abs((int)PlayerOnePoint - (int)PlayerTwoPoint);
 
-            if (Math.Max((int)_playerOnePoint, (int)_playerTwoPoint) < 3)
+            if (Math.Max((int)PlayerOnePoint, (int)PlayerTwoPoint) < 3)
             {
-                if (Equals(player, "Player1"))
+                if (player.Numero.Equals(1))
                 {
-                    score = new Points(_playerOnePoint + 1, _playerTwoPoint);
+                    score = new Points(PlayerOnePoint + 1, PlayerTwoPoint);
                 } else
                 {
-                    score = new Points(_playerOnePoint, _playerTwoPoint + 1);
+                    score = new Points(PlayerOnePoint, PlayerTwoPoint + 1);
                 }
             } else 
             {
                 if (diffBetweenScore == 0)
                 {
-                    if (Equals(player, "Player1"))
+                    if (player.Numero.Equals(1))
                     {
-                        score = new Advantage(Point.Advantage, _playerTwoPoint, player);
+                        score = new Advantage(Point.Advantage, PlayerTwoPoint, player);
                     }
                     else
                     {
-                        score = new Advantage(_playerOnePoint, Point.Advantage, player);
+                        score = new Advantage(PlayerOnePoint, Point.Advantage, player);
                     }
                 } else if (diffBetweenScore >= 1)
                 {
-                    if (_playerOnePoint > _playerTwoPoint)
+                    if (PlayerOnePoint > PlayerTwoPoint)
                     {
-                        if (Equals(player, "Player1"))
+                        if (player.Numero.Equals(1))
                         {
                             score = new Game(Point.Love, Point.Love, player);
                         }
@@ -51,7 +51,7 @@ namespace TennisKata
                     }
                     else
                     {
-                        if (Equals(player, "Player2"))
+                        if (player.Numero.Equals(2))
                         {
                             score = new Game(Point.Love, Point.Love, player);
                         }
@@ -68,7 +68,7 @@ namespace TennisKata
 
         public override string ToString()
         {
-            return _playerOnePoint + ":" + _playerTwoPoint;
+            return PlayerOnePoint + ":" + PlayerTwoPoint;
         }
     }
 }
