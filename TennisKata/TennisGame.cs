@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TennisKata
+﻿namespace TennisKata
 {
     public class TennisGame
     {
@@ -33,23 +31,6 @@ namespace TennisKata
             }
 
             return _score;
-        }
-    }
-
-    public class Player
-    {
-        public readonly int Numero;
-        public readonly String Name;
-
-        public Player(int numero, string name)
-        {
-            Numero = numero;
-            Name = name;
-        }
-
-        public override string ToString()
-        {
-            return "Player" + Numero;
         }
     }
 }

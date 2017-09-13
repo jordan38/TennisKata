@@ -21,7 +21,7 @@ namespace TennisKata
 
             if (PlayerOnePoint > PlayerTwoPoint)
             {
-                if (player.Numero.Equals(1))
+                if (player.Number.Equals(1))
                 {
                     score = new Game(Point.Love, Point.Love, player);
                 } else
@@ -31,7 +31,7 @@ namespace TennisKata
             }
             else
             {
-                if (player.Numero.Equals(2))
+                if (player.Number.Equals(2))
                 {
                     score = new Game(Point.Love, Point.Love, player);
                 } else

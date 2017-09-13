@@ -17,7 +17,7 @@ namespace TennisKata
 
             if (Math.Max((int)PlayerOnePoint, (int)PlayerTwoPoint) < 3)
             {
-                if (player.Numero.Equals(1))
+                if (player.Number.Equals(1))
                 {
                     score = new Points(PlayerOnePoint + 1, PlayerTwoPoint);
                 } else
@@ -28,7 +28,7 @@ namespace TennisKata
             {
                 if (diffBetweenScore == 0)
                 {
-                    if (player.Numero.Equals(1))
+                    if (player.Number.Equals(1))
                     {
                         score = new Advantage(Point.Advantage, PlayerTwoPoint, player);
                     }
@@ -40,7 +40,7 @@ namespace TennisKata
                 {
                     if (PlayerOnePoint > PlayerTwoPoint)
                     {
-                        if (player.Numero.Equals(1))
+                        if (player.Number.Equals(1))
                         {
                             score = new Game(Point.Love, Point.Love, player);
                         }
@@ -51,7 +51,7 @@ namespace TennisKata
                     }
                     else
                     {
-                        if (player.Numero.Equals(2))
+                        if (player.Number.Equals(2))
                         {
                             score = new Game(Point.Love, Point.Love, player);
                         }
