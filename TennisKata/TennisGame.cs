@@ -24,16 +24,15 @@ namespace TennisKata
 
         public ScoreState WinAPoint(string player)
         {
-            ScoreState score;
             if (Equals(_playerOne.Name, player))
             {
-                score = _score.AddPointTo(_playerOne);
+                _score = _score.AddPointTo(_playerOne);
             } else
             {
-                score = _score.AddPointTo(_playerTwo);
+                _score = _score.AddPointTo(_playerTwo);
             }
 
-            return score;
+            return _score;
         }
     }
 

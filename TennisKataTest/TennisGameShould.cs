@@ -123,7 +123,7 @@ namespace TennisKataTest
             score.PlayerTwoPoint.Should().Be(Point.Love);
         }
 
-        [Ignore("It's not take part of this commit")]
+        [Test]
         public void ReturnScoreFifteenLoveWhenPlayerOneWinAGameAfterOneGameIsFinish()
         {
             ScoreState scoreStart = new Points(Point.Love, Point.Forty);
