@@ -11,5 +11,6 @@
             _playerTwoPoint = playerTwoPoint;
         }
 
+        public abstract ScoreState AddPointTo(string player);
     }
 }
