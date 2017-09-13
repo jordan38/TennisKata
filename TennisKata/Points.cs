@@ -4,8 +4,8 @@ namespace TennisKata
 {
     public class Points : ScoreState
     {
-        public Points(Point playerOnePoint, Point playerTwoPoint) : 
-            base(playerOnePoint, playerTwoPoint)
+        public Points(Point playerOnePoint, Point playerTwoPoint) 
+            : base(playerOnePoint, playerTwoPoint)
         {
         }
 

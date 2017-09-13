@@ -11,7 +11,8 @@ namespace TennisKata
         {
         }
 
-        public Game(Point playerOnePoint, Point playerTwoPoint, Player player) : this(playerOnePoint, playerTwoPoint)
+        public Game(Point playerOnePoint, Point playerTwoPoint, Player player) 
+            : this(playerOnePoint, playerTwoPoint)
         {
             _playerWhoWin = player;
         }

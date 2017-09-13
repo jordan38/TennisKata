@@ -6,11 +6,13 @@ namespace TennisKata
     {
         private Player _playerWithAdvantage;
 
-        public Advantage(Point playerOnePoint, Point playerTwoPoint) : base(playerOnePoint, playerTwoPoint)
+        public Advantage(Point playerOnePoint, Point playerTwoPoint) 
+            : base(playerOnePoint, playerTwoPoint)
         {
         }
 
-        public Advantage(Point playerOnePoint, Point playerTwoPoint, Player playerWithAdvantage) : this(playerOnePoint, playerTwoPoint)
+        public Advantage(Point playerOnePoint, Point playerTwoPoint, Player playerWithAdvantage) 
+            : this(playerOnePoint, playerTwoPoint)
         {
             _playerWithAdvantage = playerWithAdvantage;
         }

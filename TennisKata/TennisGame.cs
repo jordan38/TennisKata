@@ -13,10 +13,9 @@
             _score = new Points(Point.Love, Point.Love);
         }
 
-        public TennisGame(string playerOne, string playerTwo, ScoreState score)
+        public TennisGame(string playerOne, string playerTwo, ScoreState score) 
+            : this (playerOne, playerTwo)
         {
-            _playerOne = new Player(1, playerOne);
-            _playerTwo = new Player(2, playerTwo);
             _score = score;
         }
 
