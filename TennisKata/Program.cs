@@ -14,52 +14,52 @@ namespace TennisKata
         {
             game = new TennisGame("player1", "player2");
 
-            var score = game.WinAPoint("player1");
+            var score = game.PlayerOneWinAPoint();
             Console.WriteLine(score);
 
-            score = game.WinAPoint("player1");
+            score = game.PlayerOneWinAPoint();
             Console.WriteLine(score);
 
-            score = game.WinAPoint("player2");
+            score = game.PlayerTwoWinAPoint();
             Console.WriteLine(score);
 
-            score = game.WinAPoint("player2");
+            score = game.PlayerTwoWinAPoint();
             Console.WriteLine(score);
 
-            score = game.WinAPoint("player2");
+            score = game.PlayerTwoWinAPoint();
             Console.WriteLine(score);
 
-            score = game.WinAPoint("player1");
+            score = game.PlayerOneWinAPoint();
             Console.WriteLine(score);
 
-            score = game.WinAPoint("player1");
+            score = game.PlayerOneWinAPoint();
             Console.WriteLine(score);
 
-            score = game.WinAPoint("player2");
+            score = game.PlayerTwoWinAPoint();
             Console.WriteLine(score);
 
-            score = game.WinAPoint("player2");
+            score = game.PlayerTwoWinAPoint();
             Console.WriteLine(score);
 
-            score = game.WinAPoint("player2");
+            score = game.PlayerTwoWinAPoint();
             Console.WriteLine(score);
 
-            score = game.WinAPoint("player2");
+            score = game.PlayerTwoWinAPoint();
             Console.WriteLine(score);
 
-            score = game.WinAPoint("player2");
+            score = game.PlayerTwoWinAPoint();
             Console.WriteLine(score);
 
-            score = game.WinAPoint("player2");
+            score = game.PlayerTwoWinAPoint();
             Console.WriteLine(score);
 
-            score = game.WinAPoint("player2");
+            score = game.PlayerTwoWinAPoint();
             Console.WriteLine(score);
 
-            score = game.WinAPoint("player2");
+            score = game.PlayerTwoWinAPoint();
             Console.WriteLine(score);
 
-            score = game.WinAPoint("player1");
+            score = game.PlayerOneWinAPoint();
             Console.WriteLine(score);
 
             Console.WriteLine("Press enter to finish game...");

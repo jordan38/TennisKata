@@ -18,7 +18,7 @@ namespace TennisKataTest
         {
             game = new TennisGame("Player1", "Player2");
 
-            var score = game.WinAPoint("Player1");
+            var score = game.PlayerOneWinAPoint();
 
             score.ToString().Should().Be("Fifteen:Love");
         }
@@ -29,7 +29,7 @@ namespace TennisKataTest
             ScoreState scoreStart = new Points(Point.Fifteen, Point.Fifteen);
             game = new TennisGame("Player1", "Player2", scoreStart);
 
-            var score = game.WinAPoint("Player2");
+            var score = game.PlayerTwoWinAPoint();
 
             score.ToString().Should().Be("Fifteen:Thirty");
         }
@@ -40,7 +40,7 @@ namespace TennisKataTest
             ScoreState scoreStart = new Points(Point.Thirty, Point.Thirty);
             game = new TennisGame("Player1", "Player2", scoreStart);
 
-            var score = game.WinAPoint("Player1");
+            var score = game.PlayerOneWinAPoint();
 
             score.ToString().Should().Be("Forty:Thirty");
         }
@@ -51,7 +51,7 @@ namespace TennisKataTest
             ScoreState scoreStart = new Points(Point.Forty, Point.Forty);
             game = new TennisGame("Player1", "Player2", scoreStart);
 
-            var score = game.WinAPoint("Player2");
+            var score = game.PlayerTwoWinAPoint();
 
             score.ToString().Should().Be("Advantage for Player2");
         }
@@ -62,7 +62,7 @@ namespace TennisKataTest
             ScoreState scoreStart = new Advantage(Point.Advantage, Point.Forty);
             game = new TennisGame("Player1", "Player2", scoreStart);
 
-            var score = game.WinAPoint("Player2");
+            var score = game.PlayerTwoWinAPoint();
 
             score.ToString().Should().Be("Deuce");
         }
@@ -73,7 +73,7 @@ namespace TennisKataTest
             ScoreState scoreStart = new Points(Point.Thirty, Point.Forty);
             game = new TennisGame("Player1", "Player2", scoreStart);
 
-            var score = game.WinAPoint("Player1");
+            var score = game.PlayerOneWinAPoint();
 
             score.ToString().Should().Be("Deuce");
         }
@@ -84,7 +84,7 @@ namespace TennisKataTest
             ScoreState scoreStart = new Deuce(Point.Forty, Point.Forty);
             game = new TennisGame("Player1", "Player2", scoreStart);
 
-            var score = game.WinAPoint("Player1");
+            var score = game.PlayerOneWinAPoint();
 
             score.ToString().Should().Be("Advantage for Player1");
         }
@@ -95,7 +95,7 @@ namespace TennisKataTest
             ScoreState scoreStart = new Points(Point.Forty, Point.Thirty);
             game = new TennisGame("Player1", "Player2", scoreStart);
 
-            var score = game.WinAPoint("Player1");
+            var score = game.PlayerOneWinAPoint();
 
             score.ToString().Should().Be("Player1 game win");
         }
@@ -106,7 +106,7 @@ namespace TennisKataTest
             ScoreState scoreStart = new Advantage(Point.Forty, Point.Advantage);
             game = new TennisGame("Player1", "Player2", scoreStart);
 
-            var score = game.WinAPoint("Player2");
+            var score = game.PlayerTwoWinAPoint();
 
             score.ToString().Should().Be("Player2 game win");
         }
@@ -117,7 +117,7 @@ namespace TennisKataTest
             ScoreState scoreStart = new Points(Point.Love, Point.Forty);
             game = new TennisGame("Player1", "Player2", scoreStart);
 
-            var score = game.WinAPoint("Player2");
+            var score = game.PlayerTwoWinAPoint();
 
             score.PlayerOnePoint.Should().Be(Point.Love);
             score.PlayerTwoPoint.Should().Be(Point.Love);
@@ -129,11 +129,11 @@ namespace TennisKataTest
             ScoreState scoreStart = new Points(Point.Love, Point.Forty);
             game = new TennisGame("Player1", "Player2", scoreStart);
 
-            var score = game.WinAPoint("Player2");
+            var score = game.PlayerTwoWinAPoint();
 
             score.ToString().Should().Be("Player2 game win");
 
-            score = game.WinAPoint("Player1");
+            score = game.PlayerOneWinAPoint();
 
             score.ToString().Should().Be("Fifteen:Love");
         }

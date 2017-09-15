@@ -1,4 +1,6 @@
-﻿namespace TennisKata
+﻿using System;
+
+namespace TennisKata
 {
     public class TennisGame
     {
@@ -19,17 +21,14 @@
             _score = score;
         }
 
-        public ScoreState WinAPoint(string player)
+        public ScoreState PlayerOneWinAPoint()
         {
-            if (Equals(_playerOne.Name, player))
-            {
-                _score = _score.AddPointTo(_playerOne);
-            } else
-            {
-                _score = _score.AddPointTo(_playerTwo);
-            }
+            return _score.AddPointTo(_playerOne);
+        }
 
-            return _score;
+        public ScoreState PlayerTwoWinAPoint()
+        {
+            return _score = _score.AddPointTo(_playerTwo);
         }
     }
 }

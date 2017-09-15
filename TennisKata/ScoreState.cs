@@ -1,4 +1,6 @@
-﻿namespace TennisKata
+﻿using System;
+
+namespace TennisKata
 {
     public abstract class ScoreState
     {
