@@ -103,7 +103,7 @@ namespace TennisKataTest
         [Test]
         public void ReturnGameWinForPlayerTwoWhenPlayerTwoWinAPoint()
         {
-            ScoreState scoreStart = new Advantage(Point.Forty, Point.Advantage);
+            ScoreState scoreStart = new Advantage(Point.Forty, Point.Advantage, Player.Player2);
             game = new TennisGame(scoreStart);
 
             var score = game.PlayerTwoWinAPoint();

@@ -21,25 +21,12 @@ namespace TennisKata
         {
             ScoreState score;
 
-            if (PlayerOnePoint > PlayerTwoPoint)
+            if (player == _playerWithAdvantage)
             {
-                if (player == Player.Player1)
-                {
-                    score = new Game(Point.Love, Point.Love, player);
-                } else
-                {
-                    score = new Deuce(Point.Forty, Point.Forty);
-                }
-            }
-            else
+                score = new Game(Point.Love, Point.Love, player);
+            } else
             {
-                if (player == Player.Player2)
-                {
-                    score = new Game(Point.Love, Point.Love, player);
-                } else
-                {
-                    score = new Deuce(Point.Forty, Point.Forty);
-                }
+                score = new Deuce(Point.Forty, Point.Forty);
             }
 
             return score;

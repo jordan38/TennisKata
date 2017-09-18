@@ -28,14 +28,7 @@ namespace TennisKata
             {
                 if (diffBetweenScore == 0)
                 {
-                    if (Equals(player == Player.Player1))
-                    {
-                        score = new Advantage(Point.Advantage, PlayerTwoPoint, player);
-                    }
-                    else
-                    {
-                        score = new Advantage(PlayerOnePoint, Point.Advantage, player);
-                    }
+                    score = new Advantage(PlayerOnePoint, Point.Advantage, player);
                 } else if (diffBetweenScore >= 1)
                 {
                     if (PlayerOnePoint > PlayerTwoPoint)

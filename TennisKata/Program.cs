@@ -12,7 +12,7 @@ namespace TennisKata
 
         static void Main(string[] args)
         {
-            game = new TennisGame("player1", "player2");
+            game = new TennisGame();
 
             var score = game.PlayerOneWinAPoint();
             Console.WriteLine(score);
