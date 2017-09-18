@@ -11,17 +11,7 @@ namespace TennisKata
 
         public override ScoreState AddPointTo(Player player)
         {
-            ScoreState score;
-
-            if (player == Player.Player1)
-            {
-                score = new Advantage(Point.Advantage, Point.Forty, player);
-            } else
-            {
-                score = new Advantage(Point.Forty, Point.Advantage, player);
-            }
-
-            return score;
+            return new Advantage(Point.Advantage, Point.Forty, player);
         }
 
         public override string ToString()
