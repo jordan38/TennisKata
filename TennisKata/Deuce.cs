@@ -13,7 +13,7 @@ namespace TennisKata
         {
             ScoreState score;
 
-            if (player.Number.Equals(1))
+            if (player == Player.Player1)
             {
                 score = new Advantage(Point.Advantage, Point.Forty, player);
             } else

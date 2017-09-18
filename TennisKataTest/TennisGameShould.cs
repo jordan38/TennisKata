@@ -16,7 +16,7 @@ namespace TennisKataTest
         [Test]
         public void ReturnScoreFifteenLoveWhenPlayerOneWinAPoint()
         {
-            game = new TennisGame("Player1", "Player2");
+            game = new TennisGame();
 
             var score = game.PlayerOneWinAPoint();
 
@@ -27,7 +27,7 @@ namespace TennisKataTest
         public void ReturnScoreFifteenThirtyWhenPlayerTwoWinAPoint()
         {
             ScoreState scoreStart = new Points(Point.Fifteen, Point.Fifteen);
-            game = new TennisGame("Player1", "Player2", scoreStart);
+            game = new TennisGame(scoreStart);
 
             var score = game.PlayerTwoWinAPoint();
 
@@ -38,7 +38,7 @@ namespace TennisKataTest
         public void ReturnScoreFortyFortyWhenPlayerOneWinAPoint()
         {
             ScoreState scoreStart = new Points(Point.Thirty, Point.Thirty);
-            game = new TennisGame("Player1", "Player2", scoreStart);
+            game = new TennisGame(scoreStart);
 
             var score = game.PlayerOneWinAPoint();
 
@@ -49,7 +49,7 @@ namespace TennisKataTest
         public void ReturnScoreFortyAdvantageWhenPlayerTwoWinAPoint()
         {
             ScoreState scoreStart = new Points(Point.Forty, Point.Forty);
-            game = new TennisGame("Player1", "Player2", scoreStart);
+            game = new TennisGame(scoreStart);
 
             var score = game.PlayerTwoWinAPoint();
 
@@ -60,7 +60,7 @@ namespace TennisKataTest
         public void ReturnScoreDeuceWhenPlayerTwoWinAPoint()
         {
             ScoreState scoreStart = new Advantage(Point.Advantage, Point.Forty);
-            game = new TennisGame("Player1", "Player2", scoreStart);
+            game = new TennisGame(scoreStart);
 
             var score = game.PlayerTwoWinAPoint();
 
@@ -71,7 +71,7 @@ namespace TennisKataTest
         public void ReturnScoreDeuceWhenPlayerOneWinAPoint()
         {
             ScoreState scoreStart = new Points(Point.Thirty, Point.Forty);
-            game = new TennisGame("Player1", "Player2", scoreStart);
+            game = new TennisGame(scoreStart);
 
             var score = game.PlayerOneWinAPoint();
 
@@ -82,7 +82,7 @@ namespace TennisKataTest
         public void RetunAdvantageForPlayerOneWhenPlayerOneWinAPoint()
         {
             ScoreState scoreStart = new Deuce(Point.Forty, Point.Forty);
-            game = new TennisGame("Player1", "Player2", scoreStart);
+            game = new TennisGame(scoreStart);
 
             var score = game.PlayerOneWinAPoint();
 
@@ -93,7 +93,7 @@ namespace TennisKataTest
         public void ReturnGameWinForPlayerOneWhenPlayerOneWinAPoint()
         {
             ScoreState scoreStart = new Points(Point.Forty, Point.Thirty);
-            game = new TennisGame("Player1", "Player2", scoreStart);
+            game = new TennisGame(scoreStart);
 
             var score = game.PlayerOneWinAPoint();
 
@@ -104,7 +104,7 @@ namespace TennisKataTest
         public void ReturnGameWinForPlayerTwoWhenPlayerTwoWinAPoint()
         {
             ScoreState scoreStart = new Advantage(Point.Forty, Point.Advantage);
-            game = new TennisGame("Player1", "Player2", scoreStart);
+            game = new TennisGame(scoreStart);
 
             var score = game.PlayerTwoWinAPoint();
 
@@ -115,7 +115,7 @@ namespace TennisKataTest
         public void ReturnScoreLoveLoveAfterGameOver()
         {
             ScoreState scoreStart = new Points(Point.Love, Point.Forty);
-            game = new TennisGame("Player1", "Player2", scoreStart);
+            game = new TennisGame(scoreStart);
 
             var score = game.PlayerTwoWinAPoint();
 
@@ -127,7 +127,7 @@ namespace TennisKataTest
         public void ReturnScoreFifteenLoveWhenPlayerOneWinAGameAfterOneGameIsFinish()
         {
             ScoreState scoreStart = new Points(Point.Love, Point.Forty);
-            game = new TennisGame("Player1", "Player2", scoreStart);
+            game = new TennisGame(scoreStart);
 
             var score = game.PlayerTwoWinAPoint();
 

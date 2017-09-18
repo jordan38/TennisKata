@@ -21,7 +21,7 @@ namespace TennisKata
         {
             ScoreState score;
 
-            if (player.Number.Equals(1))
+            if (player == Player.Player1)
             {
                 score = new Points(PlayerOnePoint + 1, PlayerTwoPoint);
             } else
@@ -34,7 +34,7 @@ namespace TennisKata
 
         public override string ToString()
         {
-            return _playerWhoWin.ToString() + " game win";
+            return _playerWhoWin + " game win";
         }
     }
 }

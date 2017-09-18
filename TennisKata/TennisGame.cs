@@ -8,15 +8,15 @@ namespace TennisKata
         private Player _playerTwo;
         private ScoreState _score;
 
-        public TennisGame(string playerOne, string playerTwo)
+        public TennisGame()
         {
-            _playerOne = new Player(1, playerOne);
-            _playerTwo = new Player(2, playerTwo);
+            _playerOne = Player.Player1;
+            _playerTwo = Player.Player2;
             _score = new Points(Point.Love, Point.Love);
         }
 
-        public TennisGame(string playerOne, string playerTwo, ScoreState score) 
-            : this (playerOne, playerTwo)
+        public TennisGame(ScoreState score) 
+            : this ()
         {
             _score = score;
         }

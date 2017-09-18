@@ -23,7 +23,7 @@ namespace TennisKata
 
             if (PlayerOnePoint > PlayerTwoPoint)
             {
-                if (player.Number.Equals(1))
+                if (player == Player.Player1)
                 {
                     score = new Game(Point.Love, Point.Love, player);
                 } else
@@ -33,7 +33,7 @@ namespace TennisKata
             }
             else
             {
-                if (player.Number.Equals(2))
+                if (player == Player.Player2)
                 {
                     score = new Game(Point.Love, Point.Love, player);
                 } else
@@ -47,7 +47,7 @@ namespace TennisKata
 
         public override string ToString()
         {
-            return "Advantage for " + _playerWithAdvantage.ToString(); 
+            return "Advantage for " + _playerWithAdvantage; 
         }
     }
 }
